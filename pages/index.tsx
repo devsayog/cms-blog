@@ -1,4 +1,5 @@
 import Hero from 'components/Hero/Hero'
+import PostsList from 'components/PostsList/PostsList'
 import { Homepage_QueryDocument } from 'generated/generated'
 import { client } from 'lib/graphqlClient'
 import type { InferGetStaticPropsType } from 'next'
@@ -9,6 +10,8 @@ const Home = ({ editorPick }: InferGetStaticPropsType<typeof getStaticProps>) =>
   return (
     <>
       <Hero posts={featuredPosts[0]} />
+      <PostsList posts={editorPicks[0].posts} title="editor's pick" />
+      <PostsList posts={posts} title="latest posts" />
     </>
   )
 }
