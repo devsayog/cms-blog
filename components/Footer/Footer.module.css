@@ -1,0 +1,33 @@
+.footer {
+  @apply mt-5 sm:mt-7 md:mt-9 lg:mt-11 xl:mt-14 py-5 sm:py-7 md:py-9 lg:py-11 xl:py-14 bg-gray-900;
+}
+.wrapper {
+  @apply container mx-auto px-2 md:px-8;
+}
+.mainGrid {
+  @apply grid md:grid-cols-[auto,1fr] gap-5 items-center;
+}
+.socialLogoContainer {
+  @apply w-64 mx-auto text-center md:text-left space-y-5;
+}
+.socialLinksContainer {
+  @apply flex justify-center space-x-4;
+}
+.footerLinksContainer {
+  @apply flex-grow grid max-w-sm mx-auto sm:mx-0 sm:max-w-none sm:grid-cols-3;
+}
+.navLink {
+  @apply cursor-pointer text-sm leading-5 md:text-base text-blue-400 hover:text-blue-200 transition-colors capitalize;
+}
+.logoContainer {
+  @apply w-32 mx-auto text-gray-200 flex flex-col items-center rounded border border-gray-200 px-2 py-1 shadow-md hover:text-gray-50 hover:-translate-y-1 transition focusStyle hover:shadow-md shadow-transparent;
+}
+.logoText {
+  @apply text-sm sm:text-base md:text-lg;
+}
+.focusStyle {
+  @apply ring-offset-pink-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-400;
+}
+.socialLink {
+  @apply text-blue-400 hover:text-blue-200 transition-colors cursor-pointer;
+}
