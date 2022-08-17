@@ -1,0 +1,17 @@
+query POST_BY_CATEGORIES($name: String!) {
+  categories(where: { name: $name }) {
+    name
+    posts {
+      id
+      excerpt
+      slug
+      image {
+        url
+      }
+      title
+      category {
+        name
+      }
+    }
+  }
+}

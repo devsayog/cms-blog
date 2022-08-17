@@ -1,0 +1,6 @@
+query CATEGORIES_QUERY {
+  categories {
+    id
+    name
+  }
+}
