@@ -4,6 +4,9 @@
 
 @layer base {
   body {
-    @apply bg-gray-800;
+    @apply bg-gray-800 font-text;
+  }
+  section {
+    @apply py-5 sm:py-7 md:py-9 lg:py-11 xl:py-14;
   }
 }

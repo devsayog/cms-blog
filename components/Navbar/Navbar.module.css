@@ -1,5 +1,5 @@
 .nav {
-  @apply h-20 md:h-24 px-2 md:px-8 flex items-center bg-pink-800 text-gray-200 fixed top-0 inset-x-0 shadow-2xl shadow-transparent;
+  @apply h-20 md:h-24 px-2 md:px-8 flex items-center bg-pink-800 text-gray-200 fixed z-50 top-0 inset-x-0 shadow-2xl shadow-transparent;
 }
 .navContainer {
   @apply container mx-auto flex justify-between items-center;
