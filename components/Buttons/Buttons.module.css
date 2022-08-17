@@ -1,0 +1,49 @@
+/*
+    p-* -------> primarybutton-*
+*/
+.p-container {
+  @apply inline-flex items-center justify-center;
+}
+.p-sm-size {
+  @apply h-7 w-28 md:h-9 md:w-36 xl:h-11 xl:w-44;
+}
+.p-bg-hover {
+  @apply absolute bg-gradient-to-br from-pink-400 to-pink-600 items-center rounded-full shadow-2xl cursor-pointer overflow-hidden transform hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out;
+}
+.p-sm-text-size {
+  @apply text-sm md:text-base xl:text-lg;
+}
+.p-text {
+  @apply relative z-10 text-gray-300 text-center pointer-events-none uppercase font-heading tracking-wider;
+}
+.p-lg-size {
+  @apply h-10 w-40 md:h-12 md:w-60 xl:h-14 xl:w-64;
+}
+.p-lg-text-size {
+  @apply text-base sm:text-lg md:text-lg 2xl:text-xl;
+}
+/* primary base */
+.p-base-container {
+  @apply relative p-container p-lg-size;
+}
+.p-base-bg-hover {
+  @apply p-bg-hover p-lg-size;
+}
+.p-base-text {
+  @apply p-text p-lg-text-size;
+}
+/* primary small */
+.p-sm-container {
+  @apply relative p-container p-sm-size;
+}
+.p-sm-bg-hover {
+  @apply p-bg-hover p-sm-size;
+}
+.p-sm-text {
+  @apply p-text p-sm-text-size;
+}
+
+/* s-* -------> secondarybutton-* */
+.s-container {
+  @apply inline-flex items-center space-x-2 text-blue-300 text-center text-sm md:text-base 2xl:text-lg font-heading tracking-wider uppercase hover:text-blue-50 transition;
+}
