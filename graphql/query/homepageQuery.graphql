@@ -1,0 +1,39 @@
+query HOMEPAGE_QUERY {
+  posts(where: { AND: [{ NOT: { editorPick: {} } }, { NOT: { featuredPost: {} } }] }, last: 3) {
+    id
+    excerpt
+    slug
+    image {
+      url
+    }
+    title
+    category {
+      name
+    }
+  }
+  featuredPosts(last: 3) {
+    posts {
+      id
+      excerpt
+      slug
+      title
+      category {
+        name
+      }
+    }
+  }
+  editorPicks(last: 3) {
+    posts {
+      id
+      excerpt
+      slug
+      image {
+        url
+      }
+      title
+      category {
+        name
+      }
+    }
+  }
+}
