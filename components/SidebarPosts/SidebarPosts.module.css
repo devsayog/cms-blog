@@ -1,9 +1,9 @@
 .container {
-  @apply space-y-3 sm:grid sm:grid-cols-2 sm:space-y-3 sm:gap-x-3  lg:space-y-0 lg:grid-cols-1 lg:max-w-md lg:gap-x-0 lg:gap-y-3;
+  @apply space-y-3 sm:grid sm:grid-cols-2 sm:gap-x-3 sm:space-y-0 xl:space-y-0 xl:grid-cols-1 xl:max-w-md xl:gap-x-0 xl:gap-y-3;
 }
 .container > h2 {
   @apply sm:col-start-1 sm:col-span-full text-center;
 }
 .article {
-  @apply space-y-2 items-start py-3 px-5 rounded-md flex flex-col max-w-sm mx-auto sm:max-w-none sm:mx-0 bg-gray-700;
+  @apply space-y-2 py-3 px-5 rounded-md flex flex-col max-w-sm mx-auto sm:max-w-none sm:mx-0 bg-gray-700;
 }
