@@ -1,11 +1,13 @@
 import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import useScreenResize from 'hooks/useScreenResize'
 import { categoryData } from 'dummyData'
 import styles from './Navbar.module.css'
 
 const Navbar = () => {
+  const router = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const { isMd } = useScreenResize()
@@ -66,9 +68,15 @@ const Navbar = () => {
           {isMd && (
             <ul className={`${styles.navLinks}`}>
               {categoryData.categories.map((c) => (
-                <li key={c.id} className="flex items-center">
-                  <Link href={`/${c.name}`}>
-                    <a className={`${styles.navLink} ${styles.focusStyle}`}>{c.name}</a>
+                <li key={c.id}>
+                  <Link href={`/${c.name.toLowerCase()}`}>
+                    <a
+                      className={`${styles.navLink} ${styles.focusStyle} ${
+                        router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
+                      }`}
+                    >
+                      {c.name}
+                    </a>
                   </Link>
                 </li>
               ))}
@@ -90,7 +98,7 @@ const Navbar = () => {
           >
             <Dialog.Overlay className="fixed inset-0 bg-black/50 transition-opacity" />
           </Transition.Child>
-          <div className="fixed inset-0 overflow-hidden">
+          <div className="fixed inset-0 overflow-hidden z-[9999]">
             <div className="absolute inset-0 overflow-hidden">
               <div className="fixed inset-y-0 right-0 flex max-w-full">
                 <Transition.Child
@@ -102,7 +110,7 @@ const Navbar = () => {
                   leaveFrom="translate-x-0"
                   leaveTo="translate-x-full"
                 >
-                  <Dialog.Panel className="text-gray-200 w-60 min-h-screen bg-pink-800">
+                  <Dialog.Panel className="text-gray-200 w-60 min-h-screen bg-gray-700">
                     <nav className="p-4 h-full">
                       <div className="flex items-center justify-between">
                         {logo}
@@ -133,7 +141,9 @@ const Navbar = () => {
                             <Link href={`/${c.name}`}>
                               <a
                                 onClick={() => setSidebarOpen(false)}
-                                className={`text-xl ${styles.navLink} ${styles.focusStyle}`}
+                                className={`text-xl ${styles.navLink} ${styles.focusStyle} ${
+                                  router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
+                                }`}
                               >
                                 {c.name}
                               </a>
