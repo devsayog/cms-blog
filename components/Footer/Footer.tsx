@@ -1,6 +1,7 @@
+import { useQuery } from '@apollo/client'
 import { Heading3 } from 'components/Typography/Headings/Headings'
 import Paragraph from 'components/Typography/Paragraph/Paragraph'
-import { categoryData } from 'dummyData'
+import { Categories_QueryDocument } from 'generated/generated'
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
@@ -8,6 +9,7 @@ const infoList = ['about', 'carrers']
 const getIntouch = ['about us', 'contact', 'support']
 
 const Footer = () => {
+  const { data: categoryData, loading } = useQuery(Categories_QueryDocument)
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
@@ -135,13 +137,15 @@ const Footer = () => {
             <div className="px-4">
               <Heading3>categories</Heading3>
               <nav className="list-none mb-10">
-                {categoryData.categories.map((c) => (
-                  <li key={c.id}>
-                    <Link href={`/${c.name}`}>
-                      <a className={styles.navLink}>{c.name}</a>
-                    </Link>
-                  </li>
-                ))}
+                {loading || !categoryData
+                  ? 'loading'
+                  : categoryData.categories.map((c) => (
+                      <li key={c.id}>
+                        <Link href={`/${c.name}`}>
+                          <a className={styles.navLink}>{c.name}</a>
+                        </Link>
+                      </li>
+                    ))}
               </nav>
             </div>
           </div>

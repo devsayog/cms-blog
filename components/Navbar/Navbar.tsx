@@ -3,10 +3,12 @@ import { Dialog, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useScreenResize from 'hooks/useScreenResize'
-import { categoryData } from 'dummyData'
 import styles from './Navbar.module.css'
+import { useQuery } from '@apollo/client'
+import { Categories_QueryDocument } from 'generated/generated'
 
 const Navbar = () => {
+  const { data: categoryData, loading } = useQuery(Categories_QueryDocument)
   const router = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
@@ -67,19 +69,21 @@ const Navbar = () => {
           {/* menu for > md devices */}
           {isMd && (
             <ul className={`${styles.navLinks}`}>
-              {categoryData.categories.map((c) => (
-                <li key={c.id}>
-                  <Link href={`/${c.name.toLowerCase()}`}>
-                    <a
-                      className={`${styles.navLink} ${styles.focusStyle} ${
-                        router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
-                      }`}
-                    >
-                      {c.name}
-                    </a>
-                  </Link>
-                </li>
-              ))}
+              {loading || !categoryData
+                ? 'loading'
+                : categoryData.categories.map((c) => (
+                    <li key={c.id}>
+                      <Link href={`/${c.name.toLowerCase()}`}>
+                        <a
+                          className={`${styles.navLink} ${styles.focusStyle} ${
+                            router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
+                          }`}
+                        >
+                          {c.name}
+                        </a>
+                      </Link>
+                    </li>
+                  ))}
             </ul>
           )}
         </div>
@@ -136,20 +140,24 @@ const Navbar = () => {
                         </button>
                       </div>
                       <ul className={styles.mbLinks}>
-                        {categoryData.categories.map((c) => (
-                          <li key={c.id}>
-                            <Link href={`/${c.name}`}>
-                              <a
-                                onClick={() => setSidebarOpen(false)}
-                                className={`text-xl ${styles.navLink} ${styles.focusStyle} ${
-                                  router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
-                                }`}
-                              >
-                                {c.name}
-                              </a>
-                            </Link>
-                          </li>
-                        ))}
+                        {loading || !categoryData
+                          ? 'loading'
+                          : categoryData.categories.map((c) => (
+                              <li key={c.id}>
+                                <Link href={`/${c.name}`}>
+                                  <a
+                                    onClick={() => setSidebarOpen(false)}
+                                    className={`text-xl ${styles.navLink} ${styles.focusStyle} ${
+                                      router.asPath.includes(c.name.toLowerCase())
+                                        ? 'border-b-4'
+                                        : ''
+                                    }`}
+                                  >
+                                    {c.name}
+                                  </a>
+                                </Link>
+                              </li>
+                            ))}
                       </ul>
                     </nav>
                   </Dialog.Panel>
