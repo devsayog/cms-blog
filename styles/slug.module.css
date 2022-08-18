@@ -1,0 +1,33 @@
+.wrapper {
+  @apply xl:grid xl:grid-cols-[auto,30%] gap-4;
+}
+.articleWrapper {
+  @apply pb-8 md:pb-12 xl:pb-16;
+}
+.content pre > code {
+  @apply bg-transparent;
+}
+.article {
+  @apply prose md:prose-xl mx-auto prose-headings:text-gray-100 prose-invert prose-code:bg-gray-600 prose-code:rounded prose-pre:prose-code:bg-gray-50 content;
+}
+.imgH1 {
+  @apply grid shadow-2xl;
+}
+.imgWrapper {
+  @apply col-start-1 col-end-2 row-start-1 row-end-2;
+}
+.h1 {
+  @apply col-start-1 col-end-2 row-start-1 row-end-2 bg-gray-100 self-end relative z-20 uppercase font-heading text-base sm:text-lg  md:text-xl lg:text-2xl xl:text-3xl sm:p-1 md:p-2 xl:p-3  tracking-wider;
+}
+.sideBar {
+  @apply mx-auto xl:self-start sticky top-28 text-gray-400 mb-4 sm:mb-6 md:mb-10 lg:mb-12 xl:mb-16;
+}
+.tag {
+  @apply bg-gray-700 capitalize p-2 inline-block rounded text-blue-300 hover:scale-105 transition-transform mr-3;
+}
+.avatar {
+  @apply rounded-full w-20 h-20 relative;
+}
+.avatarContainer {
+  @apply flex items-center text-sm leading-5 md:text-base space-x-3 sm:space-x-5 md:space-x-7 pb-4 sm:pb-6 md:pb-8;
+}

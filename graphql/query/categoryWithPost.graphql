@@ -1,0 +1,8 @@
+query CATEGORY_WITH_POST {
+  categories {
+    name
+    posts {
+      slug
+    }
+  }
+}

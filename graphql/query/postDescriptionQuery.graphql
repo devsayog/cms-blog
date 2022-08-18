@@ -1,0 +1,33 @@
+query POST_DESCRIPTION_QUERY($slug: String!, $category: String!) {
+  post(where: { slug: $slug }) {
+    title
+    category {
+      name
+    }
+    image {
+      url
+    }
+    createdAt
+    updatedAt
+    author {
+      name
+      profilePicture {
+        url
+      }
+    }
+    blog {
+      html
+    }
+  }
+  category(where: { name: $category }) {
+    posts(where: { NOT: { slug: $slug } }, last: 3) {
+      title
+      id
+      excerpt
+      slug
+      category {
+        name
+      }
+    }
+  }
+}
