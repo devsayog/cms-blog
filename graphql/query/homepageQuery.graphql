@@ -1,5 +1,5 @@
 query HOMEPAGE_QUERY {
-  posts(where: { AND: [{ NOT: { editorPick: {} } }, { NOT: { featuredPost: {} } }] }, last: 3) {
+  posts(where: { AND: [{ NOT: { editorPick: {} } }, { NOT: { featuredPost: {} } }] }, last: 4) {
     id
     excerpt
     slug
@@ -22,7 +22,7 @@ query HOMEPAGE_QUERY {
       }
     }
   }
-  editorPicks(last: 3) {
+  editorPicks(last: 4) {
     posts {
       id
       excerpt
