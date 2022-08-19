@@ -61,7 +61,7 @@ const Slug = ({ post, similarPosts }: InferGetStaticPropsType<typeof getStaticPr
             dangerouslySetInnerHTML={{ __html: post.blog.html! }}
           ></article>
         </article>
-        <SidebarPosts heading={true} className={styles.sideBar} posts={similarPosts!} />
+        <SidebarPosts heading={true} className={`${styles.sideBar}`} posts={similarPosts!} />
       </div>
       <Newsletter />
     </section>
