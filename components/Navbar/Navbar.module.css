@@ -5,17 +5,13 @@
   @apply container mx-auto flex justify-between items-center;
 }
 .logoContainer {
-  @apply flex flex-col items-center rounded border border-gray-200 px-2 py-1 shadow-md hover:text-gray-50 hover:-translate-y-1 transition focusStyle hover:shadow-md shadow-transparent;
+  @apply flex items-center space-x-3 hover:text-gray-50 hover:-translate-y-1 focusStyle transition-transform;
 }
 .navLinks {
   @apply flex items-center md:text-xl space-x-7 capitalize;
 }
 .navLink {
   @apply px-1.5 py-2 rounded border-pink-400 hover:border-b-4 hover:text-gray-50 transition;
-}
-
-.logoText {
-  @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
 }
 .focusStyle {
   @apply ring-offset-pink-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pink-400;

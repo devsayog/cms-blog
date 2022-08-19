@@ -7,6 +7,9 @@ import styles from './Navbar.module.css'
 import { useQuery } from '@apollo/client'
 import { Categories_QueryDocument } from 'generated/generated'
 import Skeleton from 'components/Skeleton/Skeleton'
+import logoImg from 'public/logo.png'
+import Image from 'next/image'
+import Paragraph from 'components/Typography/Paragraph/Paragraph'
 
 const Navbar = () => {
   const { data: categoryData, loading } = useQuery(Categories_QueryDocument)
@@ -22,21 +25,8 @@ const Navbar = () => {
   const logo = (
     <Link href="/">
       <a className={styles.logoContainer} onClick={() => setSidebarOpen(false)}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 md:h-9 md:w-9"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-          />
-        </svg>
-        <p className={styles.logoText}>Learn Coding</p>
+        <Image layout="fixed" width={60} height={60} src={logoImg} alt="Logo" />
+        <Paragraph>Learn Coding</Paragraph>
       </a>
     </Link>
   )

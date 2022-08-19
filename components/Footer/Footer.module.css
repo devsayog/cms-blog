@@ -20,7 +20,7 @@
   @apply cursor-pointer text-sm leading-5 md:text-base text-blue-400 hover:text-blue-200 transition-colors capitalize;
 }
 .logoContainer {
-  @apply w-32 mx-auto text-gray-200 flex flex-col items-center rounded border border-gray-200 px-2 py-1 shadow-md hover:text-gray-50 hover:-translate-y-1 transition focusStyle hover:shadow-md shadow-transparent;
+  @apply flex justify-center items-center space-x-3 hover:text-gray-50 hover:-translate-y-1 focusStyle transition-transform;
 }
 .logoText {
   @apply text-sm sm:text-base md:text-lg;
