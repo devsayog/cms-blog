@@ -29,7 +29,7 @@ const PostsList = ({ posts, title, transparent }: PostsListTypes) => {
   return (
     <section className="max-w-sm mx-auto md:max-w-none md:mx-0">
       <Heading2>{title}</Heading2>
-      <div className="border border-b-4 mt-1 rounded border-gray-600 w-36" />
+      <div className="border-b-4 mt-1 rounded border-gray-600 w-36" />
       <div className="py-5 grid md:grid-cols-2 gap-6 xl:grid-cols-3 2xl:grid-cols-4">
         {posts.map((p) => (
           <Post transparent={transparent} key={p.id} post={p} />
