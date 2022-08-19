@@ -6,6 +6,7 @@ import useScreenResize from 'hooks/useScreenResize'
 import styles from './Navbar.module.css'
 import { useQuery } from '@apollo/client'
 import { Categories_QueryDocument } from 'generated/generated'
+import Skeleton from 'components/Skeleton/Skeleton'
 
 const Navbar = () => {
   const { data: categoryData, loading } = useQuery(Categories_QueryDocument)
@@ -68,22 +69,24 @@ const Navbar = () => {
 
           {/* menu for > md devices */}
           {isMd && (
-            <ul className={`${styles.navLinks}`}>
-              {loading || !categoryData
-                ? 'loading'
-                : categoryData.categories.map((c) => (
-                    <li key={c.id}>
-                      <Link href={`/${c.name.toLowerCase()}`}>
-                        <a
-                          className={`${styles.navLink} ${styles.focusStyle} ${
-                            router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
-                          }`}
-                        >
-                          {c.name}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
+            <ul className={`${styles.navLinks} ${(loading || !categoryData) && 'basis-96'}`}>
+              {loading || !categoryData ? (
+                <Skeleton />
+              ) : (
+                categoryData.categories.map((c) => (
+                  <li key={c.id}>
+                    <Link href={`/${c.name.toLowerCase()}`}>
+                      <a
+                        className={`${styles.navLink} ${styles.focusStyle} ${
+                          router.asPath.includes(c.name.toLowerCase()) ? 'border-b-4' : ''
+                        }`}
+                      >
+                        {c.name}
+                      </a>
+                    </Link>
+                  </li>
+                ))
+              )}
             </ul>
           )}
         </div>

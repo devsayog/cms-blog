@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client'
+import Skeleton from 'components/Skeleton/Skeleton'
 import { Heading3 } from 'components/Typography/Headings/Headings'
 import Paragraph from 'components/Typography/Paragraph/Paragraph'
 import { Categories_QueryDocument } from 'generated/generated'
@@ -136,16 +137,18 @@ const Footer = () => {
             </div>
             <div className="px-4">
               <Heading3>categories</Heading3>
-              <nav className="list-none mb-10">
-                {loading || !categoryData
-                  ? 'loading'
-                  : categoryData.categories.map((c) => (
-                      <li key={c.id}>
-                        <Link href={`/${c.name}`}>
-                          <a className={styles.navLink}>{c.name}</a>
-                        </Link>
-                      </li>
-                    ))}
+              <nav className={`list-none mb-10 ${(loading || !categoryData) && 'h-20'}`}>
+                {loading || !categoryData ? (
+                  <Skeleton width="200px" />
+                ) : (
+                  categoryData.categories.map((c) => (
+                    <li key={c.id}>
+                      <Link href={`/${c.name}`}>
+                        <a className={styles.navLink}>{c.name}</a>
+                      </Link>
+                    </li>
+                  ))
+                )}
               </nav>
             </div>
           </div>
