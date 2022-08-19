@@ -11,7 +11,7 @@ const Home = ({ editorPick }: InferGetStaticPropsType<typeof getStaticProps>) =>
   return (
     <>
       <Hero posts={featuredPosts[0]} />
-      <PostsList posts={editorPicks[0].posts} title="editor's pick" />
+      <PostsList transparent={true} posts={editorPicks[0].posts} title="editor's pick" />
       <PostsList posts={posts} title="latest posts" />
       <Newsletter />
     </>
