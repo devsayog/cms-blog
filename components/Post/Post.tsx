@@ -22,11 +22,15 @@ interface PostTypes {
       | null
       | undefined
   }
+  transparent?: boolean
 }
 
-const Post = ({ post }: PostTypes) => {
+const Post = ({ post, transparent }: PostTypes) => {
   return (
-    <article key={post.id} className="space-y-3 p-2 bg-gray-700 grid rounded-md">
+    <article
+      key={post.id}
+      className={`space-y-3 p-2 rounded-md  grid ${!transparent && 'bg-gray-700 shadow-md'}`}
+    >
       <Image
         className="rounded-md"
         src={post.image.url}
