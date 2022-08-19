@@ -1,11 +1,17 @@
 import PostsList from 'components/PostsList/PostsList'
+import Seo from 'components/Seo'
 import { Categories_QueryDocument, Post_By_CategoriesDocument } from 'generated/generated'
 import { client } from 'lib/graphqlClient'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
-const Category = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return <PostsList title={data.name} posts={data.posts} />
+const Category = ({ data, url }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  return (
+    <>
+      <Seo url={url} title={`${data.name} - LearnCoding`} />
+      <PostsList title={data.name} posts={data.posts} />
+    </>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -27,6 +33,7 @@ interface IParams extends ParsedUrlQuery {
 }
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { category } = ctx.params as IParams
+  const url = `${process.env.HOST ?? ''}/${category}`
   const { data } = await client.query({
     query: Post_By_CategoriesDocument,
     variables: { name: category },
@@ -35,6 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   return {
     props: {
       data: data.categories[0],
+      url,
     },
   }
 }

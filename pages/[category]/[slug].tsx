@@ -9,12 +9,14 @@ import Paragraph from 'components/Typography/Paragraph/Paragraph'
 import Newsletter from 'components/Newsletter/Newsletter'
 import { Heading3 } from 'components/Typography/Headings/Headings'
 import styles from 'styles/slug.module.css'
+import Seo from 'components/Seo'
 
-const Slug = ({ post, similarPosts }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Slug = ({ post, similarPosts, url }: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (!post) return <Paragraph>The page you are looking is not found</Paragraph>
 
   return (
     <section>
+      <Seo url={url} title={`${post.title} - LearnCoding`} />
       <div className={styles.wrapper}>
         <article className={styles.articleWrapper}>
           <header>
@@ -94,6 +96,7 @@ interface IParams extends ParsedUrlQuery {
 
 export const getStaticProps = async (ctx: GetStaticPropsContext) => {
   const { slug, category } = ctx.params as IParams
+  const url = `${process.env.HOST ?? ''}/${category}/${slug}`
 
   const { data } = await client.query({
     query: Post_Description_QueryDocument,
@@ -106,6 +109,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
     props: {
       post: data.post,
       similarPosts: data.category?.posts,
+      url,
     },
   }
 }
