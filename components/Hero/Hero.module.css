@@ -2,7 +2,7 @@
   @apply text-gray-400 grid gap-y-4 xl:grid xl:grid-cols-[auto,auto] xl:gap-y-0 xl:gap-x-6;
 }
 .article {
-  @apply grid gap-2 max-w-sm mx-auto sm:max-w-none sm:mx-0 sm:gap-x-3 sm:gap-y-0 sm:grid-cols-2 sm:items-center;
+  @apply grid gap-2 max-w-sm mx-auto sm:max-w-none sm:mx-0 sm:gap-x-6 sm:gap-y-0 sm:grid-cols-2 sm:items-center;
 }
 .imgContainer {
   @apply rounded-2xl sm:row-start-1 sm:row-end-4 xl:col-start-2 shadow-2xl;
