@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 LearnCode
 
-## Getting Started
+LearnCode is a static blog about front-end web development. You can read about different articles posted on this blog.
 
-First, run the development server:
+## Table of Contents
+
+- [General Info](#general-info)
+- [Technologies used](#technologies-used)
+- [Set up](#set-up)
+- [feature](#feature)
+
+### General Info
+
+- LearnCode is a static blog about front-end web development.
+- You can read about basics of frontend develpment reading different articles posted on this blog.
+- It is single page application built with Nextjs.
+- Contents are stored in [Hygraph](https://hygraph.com/) which is CMS.
+
+  #### Screenshot
+
+  ##### Homepage
+
+  ![Homepage Screenshot](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/0te9GWUgQfewBi5GfPUG 'Homepage')
+
+   <form action="https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/eVNO87aLTqWluQLgiUII" method="get" target="_blank"><button type="submit">View Full Image</button></form>
+
+  ##### Post description page
+
+  ![Postdescription Screenshot](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/d4cj9sUMQ522bUMdbEgs 'post description page')
+
+  <form action="https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/paRrXijWQ5lYizSYXK3h" method="get" target="_blank"><button type="submit">View Full Image</button></form>
+
+### Technologies used
+
+- Nextjs
+- Typescript
+- tailwindcss
+- @headlessui/react
+- graphql
+- @apollo/client
+- Graphql codegenerator
+- hygraph for backend i.e. storing content
+
+### Set up
+
+To run this project, first download or clone this repo
+
+create `.env.local` file and fill
 
 ```bash
-npm run dev
-# or
-yarn dev
+    NEXT_PUBLIC_GRAPHQL_URL={YOUR HYGRAPH CONTENT API URL}
+    GRAPHQL_TOKEN={YOUR HYGRAPH PUBLIC CONTENT API TOKEN}
+    HOST={`http://localhost:3000` for development {Your hosted domain name} for production}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+    // Install dependencies
+    npm install
+    // Run in development mode
+    npm run dev
+    // Build
+    npm run build
+    // Start Build site
+    // npm start
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<style>
+    button{
+        background:#db2777;
+        cursor:pointer;
+        border:0;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 4px;
+        box-shadow: 2px 2px 1px rgba(255,255,255,.2);
+    }
+</style>
