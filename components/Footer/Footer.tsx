@@ -134,18 +134,20 @@ const Footer = () => {
             </div>
             <div className="px-4">
               <Heading3>categories</Heading3>
-              <ul className={`list-none mb-10 ${(loading || !categoryData) && 'h-20'}`}>
-                {loading || !categoryData ? (
-                  <Skeleton width="200px" />
-                ) : (
-                  categoryData.categories.map((c) => (
-                    <li key={c.id}>
-                      <Link href={`/${c.name}`}>
-                        <a className={styles.navLink}>{c.name}</a>
-                      </Link>
-                    </li>
-                  ))
-                )}
+              <ul className="list-none mb-10">
+                {loading
+                  ? new Array(3).fill(0).map((_, i) => (
+                      <li key={i}>
+                        <Skeleton className="w-14 h-6 mb-3" />
+                      </li>
+                    ))
+                  : categoryData?.categories.map((c) => (
+                      <li key={c.id}>
+                        <Link href={`/${c.name}`}>
+                          <a className={styles.navLink}>{c.name}</a>
+                        </Link>
+                      </li>
+                    ))}
               </ul>
             </div>
           </div>

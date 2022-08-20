@@ -38,33 +38,32 @@ const Navbar = () => {
           {logo}
           {/* mobile menu */}
           {/* Hamburger */}
-          {!isMd && (
-            <button
-              type="button"
-              onClick={() => setSidebarOpen(true)}
-              className={styles.hamburgerBtn}
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(true)}
+            className={styles.hamburgerBtn}
+          >
+            <p className="sr-only">Open mobile menu</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              <p className="sr-only">Open mobile menu</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-              </svg>
-            </button>
-          )}
-
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
           {/* menu for > md devices */}
-          {isMd && (
-            <ul className={`${styles.navLinks} ${(loading || !categoryData) && 'basis-96'}`}>
-              {loading || !categoryData ? (
-                <Skeleton />
-              ) : (
-                categoryData.categories.map((c) => (
+          <ul className={`hidden md:flex ${styles.navLinks} `}>
+            {loading
+              ? new Array(3).fill(0).map((_, i) => (
+                  <li key={i}>
+                    <Skeleton className="w-16 h-8" />
+                  </li>
+                ))
+              : categoryData?.categories.map((c) => (
                   <li key={c.id}>
                     <Link href={`/${c.name.toLowerCase()}`}>
                       <a
@@ -76,10 +75,8 @@ const Navbar = () => {
                       </a>
                     </Link>
                   </li>
-                ))
-              )}
-            </ul>
-          )}
+                ))}
+          </ul>
         </div>
       </nav>
       {/* mobile sidebar */}
@@ -134,9 +131,13 @@ const Navbar = () => {
                         </button>
                       </div>
                       <ul className={styles.mbLinks}>
-                        {loading || !categoryData
-                          ? 'loading'
-                          : categoryData.categories.map((c) => (
+                        {loading
+                          ? new Array(3).fill(0).map((_, i) => (
+                              <li key={i}>
+                                <Skeleton className="w-16 h-8" />
+                              </li>
+                            ))
+                          : categoryData?.categories.map((c) => (
                               <li key={c.id}>
                                 <Link href={`/${c.name}`}>
                                   <a
