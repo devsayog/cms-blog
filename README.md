@@ -22,13 +22,13 @@ LearnCode is a static blog about front-end web development. You can read about d
 
   ![Homepage Screenshot](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/0te9GWUgQfewBi5GfPUG 'Homepage')
 
-   <form action="https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/eVNO87aLTqWluQLgiUII" method="get" target="_blank"><button type="submit">View Full Image</button></form>
+  [View Full Image](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/eVNO87aLTqWluQLgiUII)
 
   ##### Post description page
 
   ![Postdescription Screenshot](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/d4cj9sUMQ522bUMdbEgs 'post description page')
 
-  <form action="https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/paRrXijWQ5lYizSYXK3h" method="get" target="_blank"><button type="submit">View Full Image</button></form>
+  [View Full Image](https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/paRrXijWQ5lYizSYXK3h)
 
 ### Technologies used
 
@@ -63,15 +63,3 @@ create `.env.local` file and fill
     // Start Build site
     // npm start
 ```
-
-<style>
-    button{
-        background:#db2777;
-        cursor:pointer;
-        border:0;
-        color: white;
-        padding: 8px 16px;
-        border-radius: 4px;
-        box-shadow: 2px 2px 1px rgba(255,255,255,.2);
-    }
-</style>
