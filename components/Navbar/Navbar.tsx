@@ -44,6 +44,7 @@ const Navbar = () => {
               onClick={() => setSidebarOpen(true)}
               className={styles.hamburgerBtn}
             >
+              <p className="sr-only">Open mobile menu</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-10 w-10"

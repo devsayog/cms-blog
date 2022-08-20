@@ -2,7 +2,7 @@
   @apply bg-gray-700 space-y-8 flex flex-col items-center px-2 shadow-2xl;
 }
 .p {
-  @apply max-w-sm mx-auto text-center text-gray-300;
+  @apply max-w-sm mx-auto text-center;
 }
 .form {
   @apply flex flex-col items-center space-y-6;

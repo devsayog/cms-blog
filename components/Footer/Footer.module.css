@@ -17,7 +17,7 @@
   @apply flex-grow grid max-w-sm mx-auto sm:mx-0 sm:max-w-none sm:grid-cols-3;
 }
 .navLink {
-  @apply cursor-pointer text-sm leading-5 md:text-base text-blue-400 hover:text-blue-200 transition-colors capitalize;
+  @apply cursor-pointer text-sm leading-5 md:text-base text-blue-400 hover:text-blue-200 transition-colors capitalize inline-block my-1;
 }
 .logoContainer {
   @apply flex justify-center items-center space-x-3 hover:text-gray-50 hover:-translate-y-1 focusStyle transition-transform;

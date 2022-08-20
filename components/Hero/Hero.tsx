@@ -28,7 +28,7 @@ const Hero = ({ posts: { posts } }: HeroTypes) => {
     <section className={styles.container}>
       <article className={styles.article}>
         <span className={styles.imgContainer}>
-          <Image className="rounded-2xl" src={HeroImg} alt={posts[0].title} />
+          <Image className="rounded-2xl" src={HeroImg} alt={posts[0].title} priority={true} />
         </span>
         <Heading2>{posts[0].title}</Heading2>
         <Paragraph className="sm:self-center">{posts[0].excerpt}</Paragraph>

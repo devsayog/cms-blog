@@ -40,7 +40,7 @@ const Post = ({ post, transparent }: PostTypes) => {
         alt={post.title}
       />
       <Heading3>{post.title}</Heading3>
-      <Paragraph className="text-gray-400">{post.excerpt}</Paragraph>
+      <Paragraph>{post.excerpt}</Paragraph>
       <SecondaryBtn href={`/${post.category?.name}/${post.slug}`}>read more</SecondaryBtn>
     </article>
   )

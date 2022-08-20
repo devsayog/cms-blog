@@ -7,7 +7,9 @@ interface ParagraphTypes {
 
 const Paragraph = ({ children, className }: ParagraphTypes) => {
   return (
-    <p className={`text-sm leading-5 md:text-base ${className ? className : ''}`}>{children}</p>
+    <p className={`text-sm leading-5 md:text-base text-gray-200 ${className ? className : ''}`}>
+      {children}
+    </p>
   )
 }
 

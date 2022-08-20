@@ -53,6 +53,7 @@ const Slug = ({ post, similarPosts, url }: InferGetStaticPropsType<typeof getSta
                   width={1000}
                   height={500}
                   alt={post.title}
+                  priority={true}
                 />
               </span>
               <h1 className={styles.h1}>{post.title}</h1>

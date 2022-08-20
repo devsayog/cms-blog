@@ -31,6 +31,7 @@ const Footer = () => {
                 href="https://www.facebook.com/"
                 rel="noopener noreferrer"
               >
+                <p className="sr-only">Open Facebook</p>
                 <svg
                   fill="currentColor"
                   strokeLinecap="round"
@@ -48,6 +49,7 @@ const Footer = () => {
                 href="https://www.twitter.com/"
                 rel="noopener noreferrer"
               >
+                <p className="sr-only">Open Twitter</p>
                 <svg
                   fill="currentColor"
                   strokeLinecap="round"
@@ -65,6 +67,7 @@ const Footer = () => {
                 href="https://www.instagram.com/"
                 rel="noopener noreferrer"
               >
+                <p className="sr-only">Open Instagram</p>
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -84,6 +87,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/"
                 rel="noopener noreferrer"
               >
+                <p className="sr-only">Open Linkedin</p>
                 <svg
                   fill="currentColor"
                   stroke="currentColor"
@@ -106,27 +110,31 @@ const Footer = () => {
           <div className={styles.footerLinksContainer}>
             <div className="px-4">
               <Heading3>Info</Heading3>
-              <nav className="list-none mb-10">
+              <ul className="list-none mb-10">
                 {infoList.map((i) => (
                   <li key={i}>
-                    <a className={styles.navLink}>{i}</a>
+                    <Link href="/">
+                      <a className={styles.navLink}>{i}</a>
+                    </Link>
                   </li>
                 ))}
-              </nav>
+              </ul>
             </div>
             <div className="px-4">
               <Heading3>get in touch</Heading3>
-              <nav className="list-none mb-10">
+              <ul className="list-none mb-10">
                 {getIntouch.map((i) => (
                   <li key={i}>
-                    <a className={styles.navLink}>{i}</a>
+                    <Link href="/">
+                      <a className={styles.navLink}>{i}</a>
+                    </Link>
                   </li>
                 ))}
-              </nav>
+              </ul>
             </div>
             <div className="px-4">
               <Heading3>categories</Heading3>
-              <nav className={`list-none mb-10 ${(loading || !categoryData) && 'h-20'}`}>
+              <ul className={`list-none mb-10 ${(loading || !categoryData) && 'h-20'}`}>
                 {loading || !categoryData ? (
                   <Skeleton width="200px" />
                 ) : (
@@ -138,13 +146,13 @@ const Footer = () => {
                     </li>
                   ))
                 )}
-              </nav>
+              </ul>
             </div>
           </div>
         </div>
         <div className="bg-gray-200">
           <div className="py-5">
-            <Paragraph className="text-center">
+            <Paragraph className="text-center text-gray-800">
               © 2022 learn code —
               <a
                 href="https://twitter.com/"
